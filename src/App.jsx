@@ -128,7 +128,10 @@ function App() {
 
       {/* GIF Background Banner */}
       <section id="home" className="relative min-h-screen flex items-center">
-        <img src="https://media.giphy.com/media/3o7aD2sa1g0g0g0g0g/giphy.gif" alt="Data Mining Illustration" className="absolute inset-0 w-full h-full object-cover" />
+        <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover">
+          <source src="./assets/Data Analytics Background 1.mp4.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute inset-0 bg-black opacity-50" /> {/* Overlay for text visibility */}
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -177,17 +180,17 @@ function App() {
               {
                 title: "Market Trends",
                 description: "Understand the latest market trends with our data.",
-                imageSrc: "https://via.placeholder.com/300x200?text=Market+Trends"
+                imageSrc: "https://images.unsplash.com/photo-1581091870620-1c1c1c1c1c1c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fG1hcmtldCUyMHRyZW5kc3xlbnwwfHx8fDE2MzY5MjY0MjM&ixlib=rb-1.2.1&q=80&w=400"
               },
               {
                 title: "Customer Insights",
                 description: "Gain insights into customer behavior and preferences.",
-                imageSrc: "https://via.placeholder.com/300x200?text=Customer+Insights"
+                imageSrc: "https://images.unsplash.com/photo-1581091870620-2c2c2c2c2c2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDIyfHxjdXN0b21lciUyMGluc2lnaHR8ZW58MHx8fHwxNjM2OTI2NDI0&ixlib=rb-1.2.1&q=80&w=400"
               },
               {
                 title: "Brand Performance",
                 description: "Analyze your brand's performance in the market.",
-                imageSrc: "https://via.placeholder.com/300x200?text=Brand+Performance"
+                imageSrc: "https://images.unsplash.com/photo-1581091870620-3d3d3d3d3d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDMxfHxicmFuZCUyMHBhcmZvbWFuY2V8ZW58MHx8fHwxNjM2OTI2NDI1&ixlib=rb-1.2.1&q=80&w=400"
               }
             ].map((item, index) => (
               <motion.div
@@ -396,26 +399,31 @@ function App() {
               {
                 step: "Step 1",
                 description: "Collect data from various sources.",
-                icon: <FaChartLine className="text-yellow-400 text-3xl mb-4" />
+                icon: <FaChartLine className="text-yellow-400 text-4xl mb-4" />
               },
               {
                 step: "Step 2",
                 description: "Analyze the data using advanced algorithms.",
-                icon: <FaBullseye className="text-orange-600 text-3xl mb-4" />
+                icon: <FaBullseye className="text-orange-600 text-4xl mb-4" />
               },
               {
                 step: "Step 3",
                 description: "Generate actionable insights for decision-making.",
-                icon: <FaLightbulb className="text-red-600 text-3xl mb-4" />
+                icon: <FaLightbulb className="text-red-600 text-4xl mb-4" />
               }
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2"
               >
-                <div className="flex gap-4">{item.icon}
-                <h3 className="text-xl text-black font-bold">{item.step}</h3></div>
-                <p className="text-gray-600">{item.description}</p>
+                <div className="flex items-center gap-4">
+                  {item.icon}
+                  <h3 className="text-xl text-black font-bold">{item.step}</h3>
+                </div>
+                <p className="text-gray-600 mt-2">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -432,6 +440,9 @@ function App() {
             className="text-4xl font-bold  text-blue-400 text-center mb-16"
           >
             Get in Touch
+          <p className="text-lg text-gray-600 text-center mb-8">
+            We would love to hear from you! Whether you have <br /> questions, feedback,  or just want to connect, feel free to reach out. <br /> Our team is here to assist you and provide the information you need.
+          </p>
           </motion.h2>
           <div className="max-w-2xl mx-auto">
             <motion.form
@@ -519,17 +530,17 @@ function App() {
                   <input
                     type="email"
                     placeholder="Your email"
-                    className="flex-1 px-4 py-2 rounded-l-lg focus:outline-none"
+                    className="flex-1 px-4 py-2 w-40 rounded-l-lg focus:outline-none"
                   />
-                  <button className="bg-yellow-400 px-3 py-2 rounded-r-lg hover:bg-orange-600 transition-colors">
-                    Subscribe
+                  <button className="bg-yellow-400 px-2 py-2 rounded-r-lg hover:bg-orange-600 transition-colors">
+                    ➔
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-200">
-            <p>© {new Date().getFullYear()} MindGauge. All rights reserved.</p>
+          <div className="border-t border-yellow-400 mt-8 text-center text-gray-200">
+            <p className="pt-6">© {new Date().getFullYear()} MindGauge. All rights reserved.</p>
           </div>
         </div>
       </footer>
